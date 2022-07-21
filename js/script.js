@@ -12,11 +12,12 @@ const btns = document.querySelectorAll('.btn');
 document.querySelector('.header__burger').onclick = () => {
   document.getElementsByTagName('body')[0].classList.add('hidden');
   document.querySelector('.header__menu-wrapper').classList.add('active-menu');
-  
+  document.querySelector('.header').classList.add('back');
 }
 document.querySelector('.header__close-btn').onclick = () => {
   document.querySelector('.header__menu-wrapper').classList.remove('active-menu');
   document.getElementsByTagName('body')[0].classList.remove('hidden');
+  document.querySelector('.header').classList.remove('back');
 }
 
 function reset(event) {
