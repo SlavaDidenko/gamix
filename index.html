@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="./style/style.css">
-    <script defer src="js/script.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -64,7 +64,7 @@
                             <div class="about__girl-img"></div>
                         </div>
                         <div class="about__text-content">
-                            <div class="about__suptitle suptitle">About Robot Games</div>
+                            <p class="about__suptitle suptitle">About Robot Games</p>
                             <h2 class="about__title modify-title">Robots is an Interactive <span class="about__title--red modify-title__red">Card Games</span></h2>
                             <p class="about__text text">Gaming and Sports Template that is designed to build modern Online Game, Gaming News Portal, Gaming Online News Portal, and other News services websites and it is suitable for any kind of small business activity.</p>
                             <a class="about__btn-arrow btn-arrow" href="#">Explore More</a>
@@ -72,8 +72,51 @@
                     </div>
                 </div>
             </section>
+            <section class="streamer">
+                <div class="container">
+                    <div class="streamer__text-wrapper">
+                        <p class="streamer__suptitle suptitle">Streamer</p>
+                        <h2 class="streamer__title modify-title">Featured <span class="streamer__title--red">Streamer</span></h2>
+                    </div>
+                    <div class="streamer__swiper swiper ">
+                        <div class=" swiper-wrapper">
+                          <div class="swiper-slide">
+                            <div class="streamer__slide-img">
+                                <a class=" streamer__slide-link" href="#">
+                                    <img src="./img/streamer/streamer-img2.png" alt="streamer-img">
+                                </a>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="streamer__slide-img">
+                                <a class=" streamer__video-link" href="#">
+                                    <img src="./img/streamer/streamer-img1.png" alt="streamer-img">
+                                </a>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="streamer__slide-img">
+                                <a class="streamer__video-link" href="#">
+                                    <img src="./img/streamer/streamer-img2.png" alt="streamer-img">
+                                </a>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="streamer__slide-img">
+                                <a class=" streamer__video-link" href="#">
+                                    <img src="./img/streamer/streamer-img1.png" alt="streamer-img">
+                                </a>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </section>
         </main>
         <footer class="footer"></footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
