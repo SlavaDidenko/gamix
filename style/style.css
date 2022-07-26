@@ -225,6 +225,32 @@ li {
     display: block;
   }
 }
+.header.header-fixed {
+  -webkit-animation: header 2s;
+          animation: header 2s;
+  padding: 16px;
+  position: fixed;
+  background-color: #eaa1fe;
+  transform: translateY(-100px);
+  -webkit-animation-duration: 500ms;
+          animation-duration: 500ms;
+}
+@-webkit-keyframes header {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes header {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
 .btn-started {
   padding: 13px 34px 13px 35px;

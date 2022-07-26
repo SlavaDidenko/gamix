@@ -235,6 +235,24 @@ li {
       display: block;
     }
   }
+  
+  &.header-fixed{
+    animation: header 2s;
+    padding: 16px;
+    position: fixed;
+    background-color: #eaa1fe;
+    transform: translateY(-100px);
+    animation-duration: 500ms;
+  }
+  @keyframes header {
+    0% {
+      transform: translateY(-100px);
+    }
+  
+    100% {
+      transform: translateY(0);
+    }
+  }
 }
 
 .btn-started {
@@ -644,8 +662,8 @@ li {
     min-height: 27%;
     width: 150px;
     background: linear-gradient(181.4deg, #2E2594 -10.1%, #F73B6C 255.25%);
-opacity: 0.8;
-border-radius: 75px;
+    opacity: 0.8;
+    border-radius: 75px;
 
     &::after{
       content: '';
@@ -693,5 +711,3 @@ border-radius: 75px;
 }
 .swiper-button-next {
 }
-
-
