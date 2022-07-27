@@ -66,7 +66,6 @@ li {
   left: 0;
   right: 0;
   width: 100%;
-
   z-index: 10;
 
   &.back{
@@ -235,22 +234,24 @@ li {
       display: block;
     }
   }
-  
+
   &.header-fixed{
-    animation: header 2s;
-    padding: 16px;
+    animation: header 300ms ease;
+    padding: 14px;
+    border-bottom: 2px solid #bd00f136;
     position: fixed;
     background-color: #eaa1fe;
-    transform: translateY(-100px);
-    animation-duration: 500ms;
+
   }
   @keyframes header {
     0% {
       transform: translateY(-100px);
+      opacity: 0;
     }
   
     100% {
       transform: translateY(0);
+      opacity: 1;
     }
   }
 }
@@ -593,6 +594,7 @@ li {
       }
     } 
 }
+///////////////////////////////////////////
 .streamer {
   padding: 30px 0;
   background: url('../img/streamer/streamer-bg.png') no-repeat center;
@@ -633,12 +635,20 @@ li {
   }
 
   &__slide-img{
+    width: 100%;
     max-width: 570px;
+    height: 350px;
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border: 6px solid rgba(255, 255, 255, 0.8);
+    border-radius: 175px;
   }
 
 
   &__video-link{
-    display: inline-block;
+    display: block;
     position: relative;
     &::before{
       content: '';
@@ -653,12 +663,15 @@ li {
       background: url('../img/streamer/player.svg');
 
     }
+    img{
+      height: 350px;
+      width: 570px;
+    }
   }
 
   &__play{
     display: inline-block;
     position: relative;
-    height: 100;
     min-height: 27%;
     width: 150px;
     background: linear-gradient(181.4deg, #2E2594 -10.1%, #F73B6C 255.25%);
@@ -680,21 +693,26 @@ li {
   .swiper-pagination{
     transform: translateX(0)!important;
     margin: 0 auto;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     position: static;
   }
   .swiper-pagination-bullet{
     background: #FFFFFF;
+
     height: 16px;
     width: 16px;
+
     transform: scale(1);
     opacity: 1;
   }
   .swiper-pagination-bullet-active{
     height: 24px;
     width: 24px;
+
     background:  #B53071;
   }
 }
@@ -710,4 +728,62 @@ li {
 .swiper-button-prev {
 }
 .swiper-button-next {
+}
+
+
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0 15px;
+
+  background: rgba(132, 39, 117, 0.637);
+
+  z-index: 11;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  iframe{
+    width: 100%;
+    height: 100%;
+  }
+  
+  &__window {
+    position: relative;
+
+    padding: 20px;
+
+    height: 100%;
+    width: 100%;
+    max-width: 700px;
+    max-height: 450px;
+
+    background: #f1c3e7;
+    border-radius: 20px;
+  }
+
+  &__close-bth {
+    position: absolute;
+
+    right: -5px;
+    top: -5px;
+
+    height: 32px;
+    width: 32px;
+
+    background: url('../img/header/circular-button_icon.svg') no-repeat;
+    background-size: cover;
+
+    border: 0;
+    cursor: pointer;
+    
+  }
+}
+.popup-active{
+  display: flex;
 }

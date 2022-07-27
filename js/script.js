@@ -5,24 +5,38 @@ const header = document.querySelector('.header');
 const closeBurger = document.querySelector('.header__close-btn');
 const headerHeight = header.offsetHeight;
 const hero = document.querySelector('.main-page');
+const watch = document.querySelector('.main-page__watch-btn');
+const popup = document.querySelector('.popup');
+const closePopup = document.querySelector('.popup__close-bth');
+
+document.addEventListener('click', e => {
+  if ( !e.target.closest('.popup__window') && popup.className.includes('popup-active') && !e.target.closest('.main-page__watch-btn')) {
+    console.log('aa')
+    popup.classList.remove('popup-active')
+  }
+})
+
+closePopup.onclick = () => {
+  popup.classList.remove('popup-active');
+}
+
+
+watch.onclick = (e) => {
+  e.preventDefault();
+  popup.classList.add('popup-active')
+}
+
 const heightHero = hero.offsetHeight;
 let lastScrollTop = 0;
 
 window.addEventListener('scroll', () => {
   let scrollDistance = window.scrollY;
-
-  if (scrollDistance >= heightHero) {
-    header.style.transform = `translateY(0)`;
+  if (lastScrollTop > scrollDistance && heightHero < scrollDistance) {
     header.classList.add('header-fixed')
-    // if (lastScrollTop < scrollDistance && scrollDistance >= heightHero + headerHeight) {
-    //   header.classList.remove('header-fixed')
-    //   lastScrollTop = scrollDistance;
-    // } else {
-    //   header.classList.remove('header-fixed')
-    // }
   } else {
     header.classList.remove('header-fixed')
   }
+  lastScrollTop = scrollDistance;
 })
 
 function offMenuBurger() {
@@ -50,19 +64,20 @@ document.addEventListener('click', (e) => {
 const swiper = new Swiper('.swiper', {
   slidesPerView: 2,
   spaceBetween: 30,
-  crossFade: true,
-  longswipes: false,
-  preventClicks: true,
-  resistanceRatio: 0.55,
   speed: 150,
-  watchOverflow : true,
-  touchAngle : 200,
+  resistanceRatio: 0.5,
   pagination: {
     el: '.swiper-pagination',
     type: 'bullets',
     clickable: true,
     dynamicBullets: true,
   },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    }
+  }
 });
-
-swiper.slideNext();

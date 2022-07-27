@@ -226,29 +226,31 @@ li {
   }
 }
 .header.header-fixed {
-  -webkit-animation: header 2s;
-          animation: header 2s;
-  padding: 16px;
+  -webkit-animation: header 300ms ease;
+          animation: header 300ms ease;
+  padding: 14px;
+  border-bottom: 2px solid rgba(189, 0, 241, 0.2117647059);
   position: fixed;
   background-color: #eaa1fe;
-  transform: translateY(-100px);
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
 }
 @-webkit-keyframes header {
   0% {
     transform: translateY(-100px);
+    opacity: 0;
   }
   100% {
     transform: translateY(0);
+    opacity: 1;
   }
 }
 @keyframes header {
   0% {
     transform: translateY(-100px);
+    opacity: 0;
   }
   100% {
     transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -624,10 +626,16 @@ li {
   background: linear-gradient(268.82deg, #2E2594 0%, #F73B6C 97.99%);
 }
 .streamer__slide-img {
+  width: 100%;
   max-width: 570px;
+  height: 350px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 6px solid rgba(255, 255, 255, 0.8);
+  border-radius: 175px;
 }
 .streamer__video-link {
-  display: inline-block;
+  display: block;
   position: relative;
 }
 .streamer__video-link::before {
@@ -640,10 +648,13 @@ li {
   width: 150px;
   background: url("../img/streamer/player.svg");
 }
+.streamer__video-link img {
+  height: 350px;
+  width: 570px;
+}
 .streamer__play {
   display: inline-block;
   position: relative;
-  height: 100;
   min-height: 27%;
   width: 150px;
   background: linear-gradient(181.4deg, #2E2594 -10.1%, #F73B6C 255.25%);
@@ -678,4 +689,47 @@ li {
   height: 24px;
   width: 24px;
   background: #B53071;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0 15px;
+  background: rgba(132, 39, 117, 0.637);
+  z-index: 11;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.popup iframe {
+  width: 100%;
+  height: 100%;
+}
+.popup__window {
+  position: relative;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  max-width: 700px;
+  max-height: 450px;
+  background: #f1c3e7;
+  border-radius: 20px;
+}
+.popup__close-bth {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  height: 32px;
+  width: 32px;
+  background: url("../img/header/circular-button_icon.svg") no-repeat;
+  background-size: cover;
+  border: 0;
+  cursor: pointer;
+}
+
+.popup-active {
+  display: flex;
 }/*# sourceMappingURL=style.css.map */
