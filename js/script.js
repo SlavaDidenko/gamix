@@ -78,13 +78,13 @@ document.addEventListener('click', (e) => {
   }
 })
 
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.streamer__swiper', {
   slidesPerView: 2,
   spaceBetween: 30,
   speed: 150,
   resistanceRatio: 0.5,
   pagination: {
-    el: '.swiper-pagination',
+    el: '.streamer__swiper-pagination',
     type: 'bullets',
     clickable: true,
     dynamicBullets: true,
@@ -97,4 +97,30 @@ const swiper = new Swiper('.swiper', {
       slidesPerView: 2,
     }
   }
+});
+
+const testimonialSwiper = new Swiper('.testimonial__swiper', {
+  slidesPerView: 1,
+  parallax: true,
+  speed: 600,
+  resistanceRatio: 0.5,
+  pagination: {
+    el: '.testimonial__swiper-pagination',
+    type: 'bullets',
+    clickable: true,
+    dynamicBullets: true,
+  },
+  effect: 'coverflow',
+  coverflowEffect: {
+    rotate: 120,
+    slideShadows: false,
+  },
+  // breakpoints: {
+  //   320: {
+  //     slidesPerView: 1,
+  //   },
+  //   768: {
+  //     slidesPerView: 2,
+  //   }
+  // }
 });

@@ -317,7 +317,7 @@ li {
 }
 .header.header-fixed {
   animation: header 300ms ease;
-  padding: 14px;
+  padding: 5px;
   border-bottom: 2px solid rgba(189, 0, 241, 0.2117647059);
   position: fixed;
   background-color: #eaa1fe;
@@ -614,7 +614,7 @@ li {
   bottom: 0;
   left: 0;
   height: 2px;
-  width: 290px;
+  width: 100%;
   transform: rotate(-0.74deg);
   background: linear-gradient(268.82deg, #2E2594 0%, #F73B6C 97.99%);
 }
@@ -635,6 +635,11 @@ li {
 @media (max-width: 1000px) {
   .modify-title {
     font-size: 44px;
+  }
+}
+@media (max-width: 768px) {
+  .modify-title {
+    font-size: 35px;
   }
 }
 
@@ -689,7 +694,7 @@ li {
   bottom: 0;
   right: 0;
   height: 2px;
-  width: 210px;
+  width: 100%;
   transform: rotate(-0.74deg);
   background: linear-gradient(268.82deg, #2E2594 0%, #F73B6C 97.99%);
 }
@@ -826,6 +831,116 @@ li {
     transform: translateY(0);
   }
 }
+.testimonial {
+  background: url("../img/testimonial/testimonial-bg.png") center no-repeat;
+  background-size: cover;
+  padding: 90px 0 120px;
+}
+.testimonial__text-wrapper {
+  text-align: center;
+  width: fit-content;
+  margin: 0 auto 40px;
+}
+.testimonial__swiper {
+  padding-bottom: 60px;
+}
+.testimonial__title {
+  position: relative;
+}
+.testimonial__title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(268.82deg, #2E2594 0%, #F73B6C 97.99%);
+}
+.testimonial__title--red {
+  color: #B53071 !important;
+}
+.testimonial__slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.testimonial__content-img {
+  min-width: 350px;
+}
+@media (max-width: 768px) {
+  .testimonial__content-img {
+    display: none;
+  }
+}
+.testimonial__slide-content {
+  max-width: 588px;
+  padding-left: 40px;
+}
+@media (max-width: 768px) {
+  .testimonial__slide-content {
+    padding-left: 0;
+  }
+}
+.testimonial__slide-text {
+  margin-top: 30px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 125%;
+  color: #332B5C;
+}
+@media (max-width: 968px) {
+  .testimonial__slide-text {
+    font-size: 20px;
+  }
+}
+.testimonial__permission {
+  font-size: 24px;
+  line-height: 125%;
+  color: #B53071;
+  font-weight: 700;
+  margin-top: 65px;
+}
+@media (max-width: 968px) {
+  .testimonial__permission {
+    font-size: 20px;
+    margin-top: 35px;
+  }
+}
+.testimonial__gamer {
+  background: linear-gradient(181.4deg, #2E2594 -10.1%, #F73B6C 255.25%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-weight: 600;
+  font-size: 16px;
+}
+@media (max-width: 968px) {
+  .testimonial__gamer {
+    font-size: 14px;
+  }
+}
+.testimonial .swiper-pagination {
+  transform: translateX(0) !important;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: static;
+}
+.testimonial .swiper-pagination-bullet {
+  background: #FFFFFF;
+  height: 16px;
+  width: 16px;
+  transform: scale(1);
+  opacity: 1;
+}
+.testimonial .swiper-pagination-bullet-active {
+  height: 24px;
+  width: 24px;
+  background: #B53071;
+}
+
 .footer {
   background: url("../img/footer/footer-bg.png") center no-repeat;
   background-size: cover;
