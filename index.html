@@ -12,7 +12,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="./style/style.css">
 </head>
-<body>
+<body class="hidden">
+    <div id="preloader">
+        <div id="loader"></div>
+      </div>
     <div class="popup">
         <div class="popup__window">
             <iframe  src="https://www.youtube.com/embed/Y5KCDWi7h9o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -23,9 +26,7 @@
         <header class="header ">
             <div class="container ">
                 <div class="header__wrapper">
-                    <a href="index.html" class ="header__logo">
-                        Gamix-<span>G</span>
-                    </a>
+                    <a href="index.html" class ="header__logo">Gamix-<span>G</span></a>
                     <div class="header__menu-wrapper">
                         <button class="header__close-btn"><span></span></button>
                         <nav class="header__nav">
@@ -39,6 +40,7 @@
                         <a class="header__btn btn-started" href="#">Get Started</a>
                     </div>
                     <button class="header__burger"></button>
+                    
                 </div>
             </div>
         </header>
@@ -119,8 +121,148 @@
                     <div class="swiper-pagination"></div>
                 </div>
             </section>
+            <a class="scroll-up" href="#">
+                <img class="scroll-up__img" src="./img/scroll-up.png" alt="scroll-up" >
+            </a> 
         </main>
         <footer class="footer">
+            <div class="container">
+                <ul class="footer__row">
+                    <li class="footer__coll">
+                        <a href="index.html" class ="footer__logo">Gamix-G</a>
+                        <p class="footer__text">Gaming and Sports Template that is designed to build modern Online Game, Gaming News Portal,News services websites and it is suitable for any kind of small business activity.</p>
+                    </li>
+                    <li class="footer__coll">
+                        <h3 class="footer__list-title">Company</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a class="footer__link" href="#">Help Center</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link" href="#">About</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link" href="#">Blog</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link" href="#">FAQs</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="footer__coll">
+                        <h3 class="footer__list-title">Games & Cards</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a class="footer__link" href="#">All</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link" href="#">Actions Cards</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link" href="#">Hero Games</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link" href="#">Robots Games</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="footer__coll">
+                        <h3 class="footer__list-title">Contact us</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a class="footer__item-link" href="mailto:contact@example.com">
+                                    <span class="footer__icon">
+                                        <svg class="" height="20" width="20">
+                                            <use xlink:href="img/sprite.svg#envelope"></use>
+                                        </svg>
+                                    </span>
+                                    contact@example.com</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__item-link" href="tel:+152534468854">
+                                    <span class="footer__icon">
+                                        <svg class="" height="20" width="20">
+                                            <use xlink:href="img/sprite.svg#tell"></use>
+                                        </svg>
+                                    </span>
+                                    +152 534-468-854
+                                </a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__item-link" href="#">
+                                    <span class="footer__icon">
+                                        <svg class="" height="20" width="20">
+                                            <use xlink:href="img/sprite.svg#location"></use>
+                                        </svg>
+                                    </span>
+                                    View on Google map
+                                </a>
+                            </li>
+                            <li class="footer__item">
+                                <ul class="footer__list-icons">
+                                    <li class="footer__item-icon">
+                                        <a class="footer__link-icon" href="#">
+                                            <svg class="" height="21" width="21">
+                                                <use xlink:href="img/sprite.svg#facebook"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="footer__item-icon">
+                                        <a class="footer__link-icon" href="#">
+                                            <svg class="" height="21" width="21">
+                                                <use xlink:href="img/sprite.svg#linkedin"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="footer__item-icon">
+                                        <a class="footer__link-icon" href="#">
+                                            <svg class="" height="21" width="21">
+                                                <use xlink:href="img/sprite.svg#twitter"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="footer__item-icon">
+                                        <a class="footer__link-icon" href="#">
+                                            <svg class="" height="21" width="21">
+                                                <use xlink:href="img/sprite.svg#pinterest"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="footer__item-icon">
+                                        <a class="footer__link-icon" href="#">
+                                            <svg class="" height="21" width="21">
+                                                <use xlink:href="img/sprite.svg#instagram"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="footer__help help">
+                    <ul class="help__list">
+                        <li class="help__item">
+                            <a class="help__link" href="#">Terms of Use</a>
+                        </li>
+                        <li class="help__item">
+                            <a class="help__link" href="#">Secure</a>
+                        </li>
+                        <li class="help__item">
+                            <a class="help__link" href="#">payments</a>
+                        </li>
+                        <li class="help__item">
+                            <a class="help__link" href="#">Privacy policy</a>
+                        </li>
+                        <li class="help__item">
+                            <a class="help__link" href="#">Contact us</a>
+                        </li>
+                        <li class="help__item">
+                            <a class="help__link" href="#">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>

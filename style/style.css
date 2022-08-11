@@ -1,3 +1,94 @@
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: #FFECFB;
+}
+
+#loader {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #9370DB;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+#loader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #BA55D3;
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+}
+
+#loader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #FF00FF;
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.preloader_hidden {
+  animation: preloaderhidden 3s linear forwards;
+  display: none;
+}
+
+@keyframes preloaderhidden {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -31,8 +122,7 @@ h6 {
 img {
   height: auto;
   max-width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 li {
@@ -226,22 +316,11 @@ li {
   }
 }
 .header.header-fixed {
-  -webkit-animation: header 300ms ease;
-          animation: header 300ms ease;
+  animation: header 300ms ease;
   padding: 14px;
   border-bottom: 2px solid rgba(189, 0, 241, 0.2117647059);
   position: fixed;
   background-color: #eaa1fe;
-}
-@-webkit-keyframes header {
-  0% {
-    transform: translateY(-100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 @keyframes header {
   0% {
@@ -490,26 +569,15 @@ li {
   background: url("../img/about/about-girl.svg");
   height: 91px;
   width: 90px;
-  -webkit-animation: mymove 1s infinite ease-in-out;
-          animation: mymove 1s infinite ease-in-out;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-  -webkit-animation-direction: alternate;
-          animation-direction: alternate;
+  animation: mymove 1s infinite ease-in-out;
+  animation-timing-function: linear;
+  animation-direction: alternate;
 }
 @media (max-width: 1100px) {
   .about__girl-img {
     top: 20px;
     right: 45px;
     left: auto;
-  }
-}
-@-webkit-keyframes mymove {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(15px);
   }
 }
 @keyframes mymove {
@@ -594,7 +662,7 @@ li {
   transition: all 0.5s ease;
 }
 .btn-arrow:hover::before {
-  right: 25px;
+  transform: translate(23px, -50%);
 }
 
 .streamer {
@@ -732,4 +800,173 @@ li {
 
 .popup-active {
   display: flex;
+}
+
+.scroll-up {
+  position: fixed;
+  display: none;
+  bottom: 25px;
+  right: 20px;
+}
+.scroll-up__img {
+  height: 62px;
+  width: 62px;
+}
+
+.scroll-up-active {
+  animation: scroll 0.4s ease;
+  display: inline-block;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(87px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.footer {
+  background: url("../img/footer/footer-bg.png") center no-repeat;
+  background-size: cover;
+  padding: 63px 0 0;
+}
+.footer__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 25px;
+}
+@media (max-width: 968px) {
+  .footer__row {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 768px) {
+  .footer__row {
+    flex-direction: column;
+  }
+}
+.footer__coll {
+  max-width: 326px;
+  margin-right: 20px;
+}
+.footer__coll:last-child {
+  margin-right: 0;
+}
+@media (max-width: 968px) {
+  .footer__coll {
+    flex: 0 1 50%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+.footer__logo {
+  display: inline-block;
+  font-size: 40px;
+  line-height: 47px;
+  color: #FFFFFF;
+  font-weight: 700;
+  margin-bottom: 33px;
+}
+.footer__text {
+  font-size: 18px;
+  line-height: 133%;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.footer__list-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #FFFFFF;
+  margin-bottom: 25px;
+}
+.footer__item {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.footer__link {
+  color: #FFFFFF;
+  font-weight: 400;
+}
+.footer__link:hover {
+  color: #E6E6E6;
+}
+.footer__icon {
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.footer__icon svg {
+  vertical-align: middle;
+  fill: #fff;
+}
+.footer__item-link {
+  font-size: 18px;
+  line-height: 133%;
+  color: #FFFFFF;
+}
+.footer__item-link:hover {
+  color: #E6E6E6;
+}
+.footer__item-link:hover svg {
+  fill: #E6E6E6;
+}
+.footer__list-icons {
+  padding: 20px 0 0;
+  display: flex;
+  align-items: center;
+}
+.footer__item-icon {
+  margin-right: 15px;
+}
+.footer__link-icon {
+  display: inline-block;
+}
+.footer__link-icon svg {
+  fill: #E6E6E6;
+}
+.footer__link-icon:hover svg {
+  fill: #fff;
+}
+.footer__help {
+  padding: 15px 0;
+  border-top: 1px solid #FFFFFF;
+  transform: rotate(0.15deg);
+}
+
+.help__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.help__item {
+  padding: 5px 30px;
+}
+@media (max-width: 900px) {
+  .help__item {
+    padding: 5px 15px;
+  }
+}
+@media (max-width: 768px) {
+  .help__item {
+    flex: 0 1 33.3%;
+  }
+}
+@media (max-width: 480px) {
+  .help__item {
+    flex: 0 1 50%;
+  }
+}
+.help__link {
+  font-size: 16px;
+  line-height: 188%;
+  color: #FFFFFF;
+}
+.help__link:hover {
+  color: #E6E6E6;
 }/*# sourceMappingURL=style.css.map */

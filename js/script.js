@@ -8,6 +8,16 @@ const hero = document.querySelector('.main-page');
 const watch = document.querySelector('.main-page__watch-btn');
 const popup = document.querySelector('.popup');
 const closePopup = document.querySelector('.popup__close-bth');
+const scrollUp = document.querySelector('.scroll-up');
+
+window.addEventListener('load', () => { 
+  setTimeout(() => {
+    const preloader = document.getElementById('preloader') /* находим блок Preloader */
+    preloader.classList.add('preloader_hidden') /* добавляем ему класс для скрытия */
+    body.remove('hidden');
+  }, 500)
+})
+
 
 document.addEventListener('click', e => {
   if ( !e.target.closest('.popup__window') && popup.className.includes('popup-active') && !e.target.closest('.main-page__watch-btn')) {
@@ -37,6 +47,13 @@ window.addEventListener('scroll', () => {
     header.classList.remove('header-fixed')
   }
   lastScrollTop = scrollDistance;
+
+  if (heightHero * 2 < scrollDistance) {
+    console.log(scrollUp)
+    scrollUp.classList.add('scroll-up-active');
+  } else {
+    scrollUp.classList.remove('scroll-up-active');
+  }
 })
 
 function offMenuBurger() {
