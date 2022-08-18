@@ -3,8 +3,7 @@ const burger = document.querySelector('.header__burger');
 const body = document.getElementsByTagName('body')[0].classList;
 const header = document.querySelector('.header');
 const closeBurger = document.querySelector('.header__close-btn');
-const headerHeight = header.offsetHeight;
-const hero = document.querySelector('.main-page');
+const headerHeight = header.offsetHeight;;
 const watch = document.querySelector('.main-page__watch-btn');
 const popup = document.querySelector('.popup');
 const closePopup = document.querySelector('.popup__close-bth');
@@ -36,20 +35,20 @@ watch.onclick = (e) => {
   popup.classList.add('popup-active')
 }
 
-const heightHero = hero.offsetHeight;
+const heightHeader = header.offsetHeight;
+const heigthAbout = document.querySelector('.shop').offsetHeight;
 let lastScrollTop = 0;
 
 window.addEventListener('scroll', () => {
   let scrollDistance = window.scrollY;
-  if (lastScrollTop > scrollDistance && heightHero < scrollDistance) {
+  if (heightHeader < scrollDistance) {
     header.classList.add('header-fixed')
   } else {
     header.classList.remove('header-fixed')
   }
   lastScrollTop = scrollDistance;
 
-  if (heightHero * 2 < scrollDistance) {
-    console.log(scrollUp)
+  if (heigthAbout < scrollDistance) {
     scrollUp.classList.add('scroll-up-active');
   } else {
     scrollUp.classList.remove('scroll-up-active');
@@ -104,17 +103,18 @@ const testimonialSwiper = new Swiper('.testimonial__swiper', {
   parallax: true,
   speed: 600,
   resistanceRatio: 0.5,
+  spaceBetween : document.querySelector('.testimonial__slide').offsetWidth / 2,
   pagination: {
     el: '.testimonial__swiper-pagination',
     type: 'bullets',
     clickable: true,
     dynamicBullets: true,
   },
-  effect: 'coverflow',
-  coverflowEffect: {
-    rotate: 120,
-    slideShadows: false,
-  },
+  // effect: 'coverflow',
+  // coverflowEffect: {
+  //   rotate: 120,
+  //   slideShadows: false,
+  // },
   // breakpoints: {
   //   320: {
   //     slidesPerView: 1,
@@ -124,3 +124,17 @@ const testimonialSwiper = new Swiper('.testimonial__swiper', {
   //   }
   // }
 });
+
+document.querySelector('.scroll-up').addEventListener('click', function (e) {
+  e.preventDefault();
+  up();
+})
+let t;
+function up() {
+	let top = Math.max(document.body.scrollTop,document.documentElement.scrollTop);
+	if(top > 0) {
+		window.scrollBy(0,-100);
+		t = setTimeout('up()',20);
+	} else clearTimeout(t);
+	return false;
+}
