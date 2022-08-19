@@ -9,30 +9,49 @@ const popup = document.querySelector('.popup');
 const closePopup = document.querySelector('.popup__close-bth');
 const scrollUp = document.querySelector('.scroll-up');
 
-window.addEventListener('load', () => { 
-  setTimeout(() => {
-    const preloader = document.getElementById('preloader') /* находим блок Preloader */
-    preloader.classList.add('preloader_hidden') /* добавляем ему класс для скрытия */
-    body.remove('hidden');
-  }, 500)
-})
+// window.addEventListener('load', () => { 
+//   setTimeout(() => {
+//     const preloader = document.getElementById('preloader') /* находим блок Preloader */
+//     preloader.classList.add('preloader_hidden') /* добавляем ему класс для скрытия */
+//     body.remove('hidden');
+//   }, 500)
+// })
 
 
 document.addEventListener('click', e => {
   if ( !e.target.closest('.popup__window') && popup.className.includes('popup-active') && !e.target.closest('.main-page__watch-btn')) {
     console.log('aa')
-    popup.classList.remove('popup-active')
+    popup.children[0].classList.add('fadeOutDown')
+    popup.children[0].classList.remove('fadeInDown')
+    popup.classList.add('fadeOutDown')
+    popup.classList.remove('fadeInDown')
+    setTimeout(() => {
+      popup.classList.remove('popup-active');
+      document.getElementById('video').src = '';
+    }, 1000);
   }
 })
 
 closePopup.onclick = () => {
-  popup.classList.remove('popup-active');
+  popup.children[0].classList.add('fadeOutDown')
+    popup.children[0].classList.remove('fadeInDown')
+    popup.classList.add('fadeOutDown')
+    popup.classList.remove('fadeInDown')
+    setTimeout(() => {
+      popup.classList.remove('popup-active');
+      document.getElementById('video').src = '';
+    }, 1000);
 }
 
 
 watch.onclick = (e) => {
   e.preventDefault();
   popup.classList.add('popup-active')
+  document.getElementById('video').src = 'https://www.youtube.com/embed/Y5KCDWi7h9o'
+  popup.children[0].classList.remove('fadeOutDown')
+  popup.classList.remove('fadeOutDown')
+  popup.children[0].classList.add('fadeInDown')
+  popup.classList.add('fadeInDown')
 }
 
 const heightHeader = header.offsetHeight;
@@ -101,7 +120,7 @@ const swiper = new Swiper('.streamer__swiper', {
 const testimonialSwiper = new Swiper('.testimonial__swiper', {
   slidesPerView: 1,
   parallax: true,
-  speed: 600,
+  speed: 800,
   resistanceRatio: 0.5,
   spaceBetween : document.querySelector('.testimonial__slide').offsetWidth / 2,
   pagination: {
@@ -110,19 +129,19 @@ const testimonialSwiper = new Swiper('.testimonial__swiper', {
     clickable: true,
     dynamicBullets: true,
   },
-  // effect: 'coverflow',
-  // coverflowEffect: {
-  //   rotate: 120,
-  //   slideShadows: false,
-  // },
-  // breakpoints: {
-  //   320: {
-  //     slidesPerView: 1,
-  //   },
-  //   768: {
-  //     slidesPerView: 2,
-  //   }
-  // }
+  effect: 'coverflow',
+  coverflowEffect: {
+    rotate: 60,
+    slideShadows: false,
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+    },
+    768: {
+      // slidesPerView: 2,
+    }
+  }
 });
 
 document.querySelector('.scroll-up').addEventListener('click', function (e) {
@@ -137,4 +156,67 @@ function up() {
 		t = setTimeout('up()',20);
 	} else clearTimeout(t);
 	return false;
+}
+
+
+
+
+
+let myPanel = document.querySelectorAll(".shop__item-product").forEach(function (element, index) {
+  let subpanel = document.querySelectorAll(".shop__product-img")[index];
+  paralaxProductImg(element , subpanel);
+})
+
+
+function paralaxProductImg(myPanel ,subpanel ) {
+  myPanel.onmousemove = transformPanel;
+  myPanel.onmouseenter = handleMouseEnter;
+  myPanel.onmouseleave = handleMouseLeave;
+
+
+  let mouseX, mouseY;
+
+  let transformAmount = 10;
+
+  function transformPanel(mouseEvent) {
+      mouseX = mouseEvent.pageX;
+      mouseY = mouseEvent.pageY;
+
+      const centerX = myPanel.offsetLeft + myPanel.clientWidth / 2;
+      const centerY = myPanel.offsetTop + myPanel.clientHeight / 2;
+
+      const percentX = (mouseX - centerX) / (myPanel.clientWidth / 2);
+      const percentY = -((mouseY - centerY) / (myPanel.clientHeight / 2));
+
+      subpanel.style.transform = "perspective(400px) rotateY(" + percentX * transformAmount + "deg) rotateX(" + percentY * transformAmount + "deg)";
+  }
+
+  function handleMouseEnter() {
+      setTimeout(() => {
+          subpanel.style.transition = "";
+      }, 100);
+      subpanel.style.transition = "transform 0.1s";
+  }
+
+  function handleMouseLeave() {
+      subpanel.style.transition = "transform 0.1s";
+      setTimeout(() => {
+          subpanel.style.transition = "";
+      }, 100);
+
+      subpanel.style.transform = "perspective(400px) rotateY(0deg) rotateX(0deg)";
+  }
+}
+
+
+
+document.addEventListener("mousemove", parallax);
+function parallax(event) {
+  this.querySelectorAll(".paralax__item").forEach((shift) => {
+    const position = shift.getAttribute("value");
+    const x = (window.innerWidth - event.pageX * position) / 90;
+    const y = (window.innerHeight - event.pageY * position) / 90;
+
+    shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
+  });
 }
